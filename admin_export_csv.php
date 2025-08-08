@@ -50,7 +50,7 @@ if (isset($_POST['export']) || isset($_GET['export'])) {
             '方書',
             '緯度',
             '経度',
-            '設置位置',
+            'アクセス方法',
             '電話番号',
             '内線番号',
             '法人番号',
@@ -87,7 +87,7 @@ if (isset($_POST['export']) || isset($_GET['export'])) {
                 !empty($row['address_detail']) ? $row['address_detail'] : '', // 方書
                 !empty($row['lat']) ? $row['lat'] : '', // 緯度
                 !empty($row['lng']) ? $row['lng'] : '', // 経度
-                !empty($row['installation_position']) ? $row['installation_position'] : '', // 設置位置
+                !empty($row['installation_position']) ? $row['installation_position'] : '', // アクセス方法
                 !empty($row['phone']) ? $row['phone'] : '', // 電話番号
                 !empty($row['phone_extension']) ? $row['phone_extension'] : '', // 内線番号
                 !empty($row['corporate_number']) ? $row['corporate_number'] : '', // 法人番号
