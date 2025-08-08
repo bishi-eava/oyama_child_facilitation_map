@@ -249,7 +249,7 @@ $appName = $config['app']['name'];
             // 詳細を見るボタンを追加
             const facilityName = <?= json_encode($config['app']['facility_name']) ?>;
             popupContent += `<br><div style="margin-top:1em; text-align:center;">
-              <a href="facility_detail.php?id=${facility.id}" style="display:inline-block; padding:0.5em 1em; background:#f8b500; color:#fff; text-decoration:none; border-radius:4px; font-size:0.9em;">${facilityName}詳細を見る</a>
+              <a href="facility_detail.php?id=${facility.id}" style="display:inline-block; padding:0.5em 1em; background:#4CAF50; color:#fff; text-decoration:none; border-radius:4px; font-size:0.9em;">${facilityName}詳細を見る</a>
             </div>`;
             
             // カテゴリーに応じたマーカーアイコンを取得

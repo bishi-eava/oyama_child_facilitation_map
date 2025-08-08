@@ -21,7 +21,7 @@
 }
 
 .leaflet-popup-content a[href*="facility_detail.php"]:hover {
-    background: #e0a000 !important;
+    background: #45a049 !important;
 }
 
 /* 施設詳細ページ専用スタイル */
@@ -107,8 +107,8 @@
 }
 
 .facility-title {
-    color: #f8b500;
-    border-bottom: 2px solid #f8b500;
+    color: #4CAF50;
+    border-bottom: 2px solid #4CAF50;
     padding-bottom: 0.5em;
     margin-bottom: 1em;
 }
@@ -117,7 +117,7 @@
     background: #f8f9fa;
     padding: 1em;
     border-radius: 4px;
-    border-left: 4px solid #f8b500;
+    border-left: 4px solid #4CAF50;
     margin-bottom: 1em;
 }
 
@@ -250,7 +250,7 @@
 }
 
 .filter-actions button {
-    background: #f8b500;
+    background: #4CAF50;
     color: #fff;
     border: none;
     padding: 8px 16px;
@@ -262,7 +262,7 @@
 }
 
 .filter-actions button:hover {
-    background: #e0a000;
+    background: #45a049;
 }
 
 .filter-actions button:nth-child(1), 

@@ -2,7 +2,7 @@
 
 /* CSS変数定義 */
 :root {
-    --primary-color: #f89000;
+    --primary-color: #4CAF50;
 }
 
 /* 基本設定 */
@@ -108,7 +108,7 @@ button {
 }
 
 button:hover { 
-    background: #e0a000; 
+    background: #45a049; 
 }
 
 /* フォーム要素共通 */
