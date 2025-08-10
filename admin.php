@@ -57,7 +57,6 @@ $res = $db->query('SELECT * FROM facilities ORDER BY id DESC');
             <tr>
                 <th class="col-id">ID</th>
                 <th class="col-name"><?= htmlspecialchars($config['app']['field_labels']['name']) ?></th>
-                <th class="col-facility-type"><?= htmlspecialchars($config['app']['field_labels']['facility_type']) ?></th>
                 <th class="col-category"><?= htmlspecialchars($config['app']['field_labels']['category']) ?></th>
                 <th class="col-address"><?= htmlspecialchars($config['app']['field_labels']['address']) ?></th>
                 <th class="col-installation"><?= htmlspecialchars($config['app']['field_labels']['installation_position']) ?></th>
@@ -75,13 +74,6 @@ $res = $db->query('SELECT * FROM facilities ORDER BY id DESC');
         <tr>
             <td class="col-id"><?= htmlspecialchars($row['id']) ?></td>
             <td class="col-name"><?= htmlspecialchars($row['name']) ?></td>
-            <td class="col-facility-type">
-                <?php if (!empty($row['facility_type'])): ?>
-                    <?= htmlspecialchars($row['facility_type']) ?>
-                <?php else: ?>
-                    <span style="color:#999;">なし</span>
-                <?php endif; ?>
-            </td>
             <td class="col-category">
                 <?php if (!empty($row['category'])): ?>
                     <?= htmlspecialchars($row['category']) ?>

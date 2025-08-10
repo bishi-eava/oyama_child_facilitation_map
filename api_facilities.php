@@ -6,7 +6,7 @@ header('Content-Type: application/json; charset=UTF-8');
 $config = getConfig();
 $db = getDatabase();
 // セキュリティ: 公開する必要のないフィールドを除外
-$res = $db->query('SELECT id, csv_no, name, name_kana, facility_type, lat, lng, address, address_detail, installation_position, phone, phone_extension, corporate_number, organization_name, available_days, start_time, end_time, available_hours_note, pediatric_support, website, note, category FROM facilities');
+$res = $db->query('SELECT id, csv_no, name, name_kana, lat, lng, address, address_detail, installation_position, phone, phone_extension, corporate_number, organization_name, available_days, start_time, end_time, available_hours_note, pediatric_support, website, note, category FROM facilities');
 $facilities = [];
 while ($row = $res->fetchArray(SQLITE3_ASSOC)) {
     // 各施設の画像を取得（original_nameは除外）

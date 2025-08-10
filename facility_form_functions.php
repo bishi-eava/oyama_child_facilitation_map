@@ -23,7 +23,6 @@ function extractFacilityDataFromPost() {
         'csv_no' => mb_substr($_POST['csv_no'] ?? '', 0, 50),
         'name' => mb_substr($_POST['name'], 0, 100),
         'name_kana' => mb_substr($_POST['name_kana'] ?? '', 0, 100),
-        'facility_type' => mb_substr($_POST['facility_type'] ?? '', 0, 100),
         'address' => mb_substr($_POST['address'] ?? '', 0, 200),
         'address_detail' => mb_substr($_POST['address_detail'] ?? '', 0, 200),
         'installation_position' => mb_substr($_POST['installation_position'] ?? '', 0, 200),
@@ -96,11 +95,11 @@ function saveFacilityData($db, $data, $config, $facilityId = null) {
     
     if ($facilityId) {
         // 更新（csv_noは更新しない - 元のコードと同じ動作）
-        $sql = 'UPDATE facilities SET name = :name, name_kana = :name_kana, facility_type = :facility_type, lat = :lat, lng = :lng, address = :address, address_detail = :address_detail, installation_position = :installation_position, phone = :phone, phone_extension = :phone_extension, corporate_number = :corporate_number, organization_name = :organization_name, available_days = :available_days, start_time = :start_time, end_time = :end_time, available_hours_note = :available_hours_note, pediatric_support = :pediatric_support, website = :website, note = :note, category = :category, updated_at = :updated_at WHERE id = :id';
+        $sql = 'UPDATE facilities SET name = :name, name_kana = :name_kana, lat = :lat, lng = :lng, address = :address, address_detail = :address_detail, installation_position = :installation_position, phone = :phone, phone_extension = :phone_extension, corporate_number = :corporate_number, organization_name = :organization_name, available_days = :available_days, start_time = :start_time, end_time = :end_time, available_hours_note = :available_hours_note, pediatric_support = :pediatric_support, website = :website, note = :note, category = :category, updated_at = :updated_at WHERE id = :id';
         $stmt = $db->prepare($sql);
     } else {
         // 新規作成（csv_noは空で作成）
-        $sql = 'INSERT INTO facilities (name, name_kana, facility_type, lat, lng, address, address_detail, installation_position, phone, phone_extension, corporate_number, organization_name, available_days, start_time, end_time, available_hours_note, pediatric_support, website, note, category, updated_at) VALUES (:name, :name_kana, :facility_type, :lat, :lng, :address, :address_detail, :installation_position, :phone, :phone_extension, :corporate_number, :organization_name, :available_days, :start_time, :end_time, :available_hours_note, :pediatric_support, :website, :note, :category, :updated_at)';
+        $sql = 'INSERT INTO facilities (name, name_kana, lat, lng, address, address_detail, installation_position, phone, phone_extension, corporate_number, organization_name, available_days, start_time, end_time, available_hours_note, pediatric_support, website, note, category, updated_at) VALUES (:name, :name_kana, :lat, :lng, :address, :address_detail, :installation_position, :phone, :phone_extension, :corporate_number, :organization_name, :available_days, :start_time, :end_time, :available_hours_note, :pediatric_support, :website, :note, :category, :updated_at)';
         $stmt = $db->prepare($sql);
     }
     
@@ -114,7 +113,6 @@ function saveFacilityData($db, $data, $config, $facilityId = null) {
     // データバインディング
     $stmt->bindValue(':name', $data['name'], SQLITE3_TEXT);
     $stmt->bindValue(':name_kana', $data['name_kana'], SQLITE3_TEXT);
-    $stmt->bindValue(':facility_type', $data['facility_type'], SQLITE3_TEXT);
     $stmt->bindValue(':lat', $data['lat'], SQLITE3_FLOAT);
     $stmt->bindValue(':lng', $data['lng'], SQLITE3_FLOAT);
     $stmt->bindValue(':address', $data['address'], SQLITE3_TEXT);

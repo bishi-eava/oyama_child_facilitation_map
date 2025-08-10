@@ -34,8 +34,7 @@ return [
                     'pediatric_support' => 'TEXT',  // 一時預かりの有無
                     'website' => 'TEXT',  // URL
                     'note' => 'TEXT',  // 備考
-                    'facility_type' => 'TEXT',  // 種別（認可公立保育所、認定こども園等）
-                    'category' => 'TEXT',  // カテゴリ（保育所、こども園等）
+                    'category' => 'TEXT',  // カテゴリ（認可公立保育所、認定こども園等）
                     'updated_at' => 'DATETIME DEFAULT CURRENT_TIMESTAMP'
                 ],
                 'indexes' => [
@@ -94,20 +93,18 @@ return [
         'timezone' => 'Asia/Tokyo',
         'facility_name' => '子育て支援施設',  // 施設の呼称
         'categories' => [
-            '保育所（認可公立）',
-            '保育所（認可私立）',
-            '認定こども園',
-            '幼稚園',
+            '認可公立保育所',
+            '認可私立保育所',
+            '認定こども園（幼保連携型）',
+            '私立幼稚園',
             '認可外保育所',
             '放課後児童クラブ',
-            '児童館',
-            'その他'
+            '児童館'
         ],
         'field_labels' => [
             'name' => '施設名',
             'name_kana' => '施設名（カナ）',
-            'facility_type' => '種別',
-            'category' => 'カテゴリー',
+            'category' => '種別',
             'address' => '住所',
             'address_detail' => '方書',
             'installation_position' => 'アクセス方法',
@@ -159,7 +156,7 @@ return [
             'csv_no' => 1,
             'name' => 4,
             'name_kana' => 5,
-            'facility_type' => 6,
+            'category' => 6,
             'address' => 7,
             'address_detail' => 8,
             'lat' => 9,
@@ -196,7 +193,7 @@ return [
             'csv_no' => '0107000001',
             'name' => 'やはた保育所',
             'name_kana' => 'ヤハタホイクショ',
-            'facility_type' => '認可公立保育所',
+            'category' => '認可公立保育所',
             'lat' => 36.308707,
             'lng' => 139.797489,
             'address' => '栃木県小山市八幡町2-8-8',
@@ -212,14 +209,13 @@ return [
             'available_hours_note' => '日曜・祝祭日・年末年始はお休み。',
             'pediatric_support' => '有',
             'website' => '',
-            'note' => '',
-            'category' => '保育所（認可公立）'
+            'note' => ''
         ],
         [
             'csv_no' => '0107000034',
             'name' => '認定とまとこども園',
             'name_kana' => 'ニンテイトマトコドモエン',
-            'facility_type' => '認定こども園（幼保連携型）',
+            'category' => '認定こども園（幼保連携型）',
             'lat' => 36.304240,
             'lng' => 139.738431,
             'address' => '栃木県小山市下泉488-3',
@@ -235,14 +231,13 @@ return [
             'available_hours_note' => '日曜・祝祭日・年末年始はお休み。',
             'pediatric_support' => '有',
             'website' => '',
-            'note' => '',
-            'category' => '認定こども園'
+            'note' => ''
         ],
         [
             'csv_no' => '0107000124',
             'name' => '駅南児童センター',
             'name_kana' => 'エキミナミジドウセンター',
-            'facility_type' => '児童館',
+            'category' => '児童館',
             'lat' => 36.302710,
             'lng' => 139.805660,
             'address' => '栃木県小山市駅南町2-11-5',
@@ -258,8 +253,7 @@ return [
             'available_hours_note' => '月曜・祝祭日等・年末年始はお休み',
             'pediatric_support' => '無',
             'website' => '',
-            'note' => '',
-            'category' => '児童館'
+            'note' => ''
         ]
     ]
 ];

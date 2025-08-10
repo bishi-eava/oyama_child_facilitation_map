@@ -475,39 +475,6 @@ function validateUploadedCSVFile($config) {
     return $uploadedFile['tmp_name'];
 }
 
-// 自動カテゴリ分類関数（子育て支援施設用）
-function categorize_facility($facility_type) {
-    // facility_typeから適切なカテゴリを判定
-    if (strpos($facility_type, '認可公立保育所') !== false) {
-        return '保育所（認可公立）';
-    }
-    
-    if (strpos($facility_type, '認可私立保育所') !== false) {
-        return '保育所（認可私立）';
-    }
-    
-    if (strpos($facility_type, '認定こども園') !== false) {
-        return '認定こども園';
-    }
-    
-    if (strpos($facility_type, '私立幼稚園') !== false) {
-        return '幼稚園';
-    }
-    
-    if (strpos($facility_type, '認可外保育所') !== false) {
-        return '認可外保育所';
-    }
-    
-    if (strpos($facility_type, '放課後児童クラブ') !== false) {
-        return '放課後児童クラブ';
-    }
-    
-    if (strpos($facility_type, '児童館') !== false) {
-        return '児童館';
-    }
-    
-    return 'その他'; // デフォルト
-}
 
 // 設定ファイル構造検証機能
 function validateConfig($config) {
@@ -857,8 +824,7 @@ function resetDatabaseWithCSVData($config) {
                 continue;
             }
             
-            // 自動カテゴリ分類（種別から判定）
-            $mappedData['category'] = categorize_facility($mappedData['facility_type'] ?? '');
+            // categoryフィールドはCSVから直接取得（自動分類なし）
             
             // 日本時間のupdated_atを追加
             $mappedData['updated_at'] = $japanTime;

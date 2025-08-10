@@ -59,14 +59,6 @@ while ($imageRow = $imageRes->fetchArray(SQLITE3_ASSOC)) {
         <div class="detail-section">
             <h2 class="facility-title"><?= htmlspecialchars($facility['name']) ?></h2>
             
-            <?php if (!empty(trim($facility['facility_type']))): ?>
-            <div class="form-group">
-                <span class="field-label"><?= htmlspecialchars($config['app']['field_labels']['facility_type']) ?></span>
-                <div class="readonly-field">
-                    <?= htmlspecialchars($facility['facility_type']) ?>
-                </div>
-            </div>
-            <?php endif; ?>
             
             <div class="form-group">
                 <span class="field-label"><?= htmlspecialchars($config['app']['field_labels']['category']) ?></span>

@@ -38,7 +38,7 @@ $appName = $config['app']['name'];
                     小山市提供のオープンデータを利用しています<br>
                     ■ 免責事項<br>
                     掲載情報は参考です<br>最新の施設状況はご自身でご確認ください<br>
-                    <span style="font-size: 1.0em; color: #666;">- 最終更新日:2025/3/19 -<br><br>
+                    <span style="font-size: 1.0em; color: #666;">- 最終更新日:2021/12/1 -<br><br>
                     <span style="font-size: 1.0em; color: #666;">GitHub : <a href="https://github.com/code4oyama/oyama_child_facilitation_map">oyama_child_facilitation_map</a></span><br>
                     <span style="font-size: 1.0em; color: #666;">©2025 <a href="https://code4oyama.org">Code for OYAMA</a></span><br>
                 </div>
@@ -119,11 +119,11 @@ $appName = $config['app']['name'];
     let markersLayer = L.layerGroup();
     
     // カテゴリーごとのマーカー色を定義
-    const categoryColors = <?= json_encode(array_combine($config['app']['categories'], ['#1e88e5', '#43a047', '#fdd835', '#8d6e63', '#e53935', '#ff7043', '#ab47bc', '#26a69a'])) ?>;
+    const categoryColors = <?= json_encode(array_combine($config['app']['categories'], ['#1e88e5', '#43a047', '#fdd835', '#8d6e63', '#e53935', '#ff7043', '#ab47bc'])) ?>;
     
     // カテゴリーに応じたマーカーアイコンを取得する関数
     function getMarkerIcon(category) {
-      const color = categoryColors[category] || '<?= end($config['app']['categories']) === 'その他' ? '#e53935' : '#666666' ?>';
+      const color = categoryColors[category] || '#666666';
       
       // SVGでカスタムマーカーを作成
       const svgIcon = `
@@ -163,7 +163,7 @@ $appName = $config['app']['name'];
             
             // カテゴリーがあれば表示
             if (facility.category && facility.category.trim() !== '') {
-              const categoryColor = categoryColors[facility.category] || '<?= end($config['app']['categories']) === 'その他' ? '#e53935' : '#666666' ?>';
+              const categoryColor = categoryColors[facility.category] || '#666666';
               popupContent += `<br><span style="background:${categoryColor}; color:#fff; padding:0.2em 0.5em; border-radius:3px; font-size:0.8em;">${facility.category}</span>`;
             }
             
@@ -173,8 +173,8 @@ $appName = $config['app']['name'];
             }
             
             // 種別があれば表示
-            if (facility.facility_type && facility.facility_type.trim() !== '') {
-              popupContent += `<br>🏢 種別: ${facility.facility_type}`;
+            if (facility.category && facility.category.trim() !== '') {
+              popupContent += `<br>🏢 種別: ${facility.category}`;
             }
             
             // アクセス方法があれば表示

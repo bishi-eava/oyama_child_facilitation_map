@@ -70,10 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
                     <input type="text" id="name_kana" name="name_kana" value="<?= htmlspecialchars($_POST['name_kana'] ?? '') ?>">
                 </div>
                 
-                <div class="form-group">
-                    <label for="facility_type"><?= htmlspecialchars($config['app']['field_labels']['facility_type']) ?></label>
-                    <input type="text" id="facility_type" name="facility_type" value="<?= htmlspecialchars($_POST['facility_type'] ?? '') ?>" placeholder="認可公立保育所">
-                </div>
                 
                 <div class="form-group">
                     <label for="category"><?= htmlspecialchars($config['app']['field_labels']['category']) ?> *</label>
